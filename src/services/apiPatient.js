@@ -15,17 +15,18 @@ export const getDrugAllergysData = async (patientId) => {
   }
 };
 
-export const addNewPatient = async () => {
-  try {
-    const { data, error } = await supabase
-      .from("drug_allergy")
-      .select("*")
-      .eq("patient_id", 1);
+export async function addNewPatient(newCabin) {
+  console.log(newCabin);
+  const { data, error } = await supabase
+    .from("patient")
+    .insert([{ ...newCabin }])
+    .select()
+    .single();
 
-    return { data, error };
-  } catch (error) {
-    // Handle any errors that might occur during the Supabase query
-    console.error("Error fetching drug allergy data:", error.message);
-    return { error: error.message };
+  if (error) {
+    console.error(error);
+    throw new Error("Settings could not be updated");
   }
-};
+
+  return data;
+}
