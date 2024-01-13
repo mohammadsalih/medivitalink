@@ -54,9 +54,40 @@ function AddPatientForm() {
   const { register, formState, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
-  function onSubmit(data) {
+  function onSubmit({
+    full_name,
+    patient_id,
+    date_of_birth,
+    gender,
+    job,
+    marital_status,
+    no_children,
+    height,
+    bmi,
+    blood_type,
+    rh_system,
+    phone_number,
+    emergency_phone_number,
+  }) {
+    const data = {
+      full_name,
+      patient_id,
+      date_of_birth,
+      gender,
+      job,
+      marital_status,
+      no_children,
+      height,
+      bmi,
+      blood_type,
+      rh_system,
+      phone_number,
+      emergency_phone_number,
+    };
+
     addNewPatient(data, {
       onSuccess: () => {
+        console.log("Success! Resetting form.");
         reset();
       },
     });

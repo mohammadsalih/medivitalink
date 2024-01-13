@@ -9,7 +9,7 @@ import { useSignup } from "./useSignup";
 
 function SignupForm() {
   const { signup, isLoading } = useSignup();
-  const { register, formState, getValues, handleSubmit, reset } = useForm();
+  const { register, formState, reset, getValues, handleSubmit } = useForm();
   const { errors } = formState;
 
   function onSubmit({ fullName, email, password }) {

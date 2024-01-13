@@ -15,11 +15,10 @@ export const getDrugAllergysData = async (patientId) => {
   }
 };
 
-export async function addNewPatient(newCabin) {
-  console.log(newCabin);
+export async function addNewPatient(newPatient) {
   const { data, error } = await supabase
     .from("patient")
-    .insert([{ ...newCabin }])
+    .insert([newPatient])
     .select()
     .single();
 
