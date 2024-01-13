@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-import { useaddNewPatient } from "./useAddNewPatient";
+import { useAddNewPatient } from "./useAddNewPatient";
 
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
@@ -8,15 +8,15 @@ import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 
 function AddPatientForm() {
-  const { addNewUser, isLoading } = useaddNewPatient();
+  const { addNewUser, isLoading } = useAddNewPatient();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
   console.log(errors);
 
-  function onSubmit({ fullName, email, password }) {
+  function onSubmit({ fullName }) {
     addNewUser(
-      { fullName, email, password },
+      { fullName },
       {
         onSettled: () => reset(),
       }
@@ -44,7 +44,7 @@ function AddPatientForm() {
         >
           Cancel
         </Button>
-        <Button disabled={isLoading}>Create new user</Button>
+        <Button disabled={isLoading}>Create new patient</Button>
       </FormRow>
     </Form>
   );

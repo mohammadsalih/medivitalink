@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { addNewPatient as addNewPatientApi } from "../../services/apiPatient";
 import { toast } from "react-hot-toast";
 
-export function useaddNewPatient() {
+export function useAddNewPatient() {
   const { mutate: addNewPatient, isLoading } = useMutation({
     mutationFn: addNewPatientApi,
     onSuccess: () => {

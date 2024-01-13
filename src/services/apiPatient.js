@@ -15,13 +15,12 @@ export const getDrugAllergysData = async (patientId) => {
   }
 };
 
-
 export const addNewPatient = async () => {
   try {
     const { data, error } = await supabase
       .from("drug_allergy")
       .select("*")
-      .eq("patient_id", patientId);
+      .eq("patient_id", 1);
 
     return { data, error };
   } catch (error) {
@@ -30,5 +29,3 @@ export const addNewPatient = async () => {
     return { error: error.message };
   }
 };
-
-
