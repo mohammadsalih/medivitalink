@@ -7,8 +7,6 @@ import FileInput from "../../ui/FileInput";
 import Button from "../../ui/Button";
 
 const EditPastDiseaseForm = () => {
-  // const handleSubmit = () => { }
-
   return (
     <Form>
       <FormRowVertical label="Condition Name">

@@ -6,18 +6,7 @@ import FileInput from "../../ui/FileInput";
 import Button from "../../ui/Button";
 
 const EditPastDiseaseForm = () => {
-  // const [surgery, setSurgery] = useState("");
-  // const [anthesiaType, setAnthesiaType] = useState([]);
-  // const [surgeryDate, setSurgeryDate] = useState(Date);
-  // const [usedMedicine, setUsedMedicine] = useState("");
-  // const [medicineDescription, setMedicineDescription] = useState("");
-  // const [file, setFile] = useState("");
-  // const [surgeryReasons, setSurgeryReasons] = useState("");
-  // const [note, setNote] = useState("");
-
-  // const handleSubmit = (e) => { }
-
-  return (
+   return (
     <Form>
       <FormRowVertical label="Surgery Name">
         <Input type="text" id="disease" placeholder="e.g. Appendectomy" />
