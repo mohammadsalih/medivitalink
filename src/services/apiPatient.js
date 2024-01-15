@@ -15,6 +15,21 @@ export const getDrugAllergysData = async (patientId) => {
   }
 };
 
+export const getPatientData = async (patientId) => {
+  try {
+    const { data, error } = await supabase
+      .from("patient")
+      .select("*")
+      .eq("patient_id", patientId);
+
+    return { data, error };
+  } catch (error) {
+    // Handle any errors that might occur during the Supabase query
+    console.error("Error fetching patient data:", error.message);
+    return { error: error.message };
+  }
+};
+
 export async function addNewPatient(newPatient) {
   const { data, error } = await supabase
     .from("patient")

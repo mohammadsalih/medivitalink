@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const StyledTab = styled.div`
+  margin-bottom: 2rem;
   padding: 1rem;
   display: flex;
   align-items: center;

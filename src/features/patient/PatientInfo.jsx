@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import PatientTypeForm from "./PatientTypeForm";
 import PatientEmergencyInfo from "./PatientEmergencyInfo";
 import PatientGeneralInfo from "./PatientGeneralInfo";
@@ -6,6 +6,7 @@ import PatientInfoHeader from "./PatientInfoHeader";
 
 function PatientInfo() {
   const [searchParams, _] = useSearchParams();
+  const { patientId } = useParams();
 
   const patientType = searchParams.get("patientType");
 
@@ -16,9 +17,9 @@ function PatientInfo() {
       <PatientInfoHeader patientType={patientType} />
 
       {patientType === "general" ? (
-        <PatientGeneralInfo />
+        <PatientGeneralInfo patientId={patientId} />
       ) : patientType === "emergency" ? (
-        <PatientEmergencyInfo />
+        <PatientEmergencyInfo patientId={patientId} />
       ) : (
         "chose a corect type"
       )}

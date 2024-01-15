@@ -27,6 +27,7 @@ function URLTap({ field, values }) {
     <StyledURLTap>
       {values.map((value) => (
         <Button
+          key={value.name}
           variation={fieldName === value.value ? "primary" : "secondary"}
           onClick={() => handleTypeChange(value.value)}
         >

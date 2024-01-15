@@ -1,43 +1,41 @@
 import { useState } from "react";
-
 import Tab from "../../ui/Tab";
+import DisplayGeneralInfo from "./DisplayGeneralInfo";
 
-function PatientEmergencyInfo() {
-  const [activeTab, setActiveTab] = useState("Tab 1");
+const forms = ["General", "Drug Allergy", "Other Allergy", "Special Condition"];
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
-
-  const tabContent = () => {
-    switch (activeTab) {
-      case "Tab 1":
-        return <h1>a</h1>;
-      case "Tab 2":
-        return <h1>b</h1>;
-      default:
-        return null;
+function RenderForm({ form, patientId }) {
+  switch (form) {
+    case "General":
+      return <DisplayGeneralInfo patientId={patientId} />;
+    case "Drug Allergy":
+      return <h1>info 2</h1>;
+    case "Other Allergy":
+      return <h1>info 3</h1>;
+    case "Special Condition":
+      return <h1>info 4</h1>;
+    default: {
+      return <h1>chone an option</h1>;
     }
-  };
+  }
+}
+
+function PatientEmergencyInfo({ patientId }) {
+  const [currentForm, setCurrentForm] = useState(forms[0]);
 
   return (
     <>
       <Tab
-        tabs={["Tab 1", "Tab 2"]}
-        defaultTab="Tab 1"
-        onTabChange={handleTabChange}
+        tabs={forms}
+        defaultTab={forms[0]}
+        onTabChange={(tab) => {
+          setCurrentForm(tab);
+        }}
       />
-      {tabContent()}
+
+      {<RenderForm form={currentForm} patientId={patientId} />}
     </>
   );
 }
 
 export default PatientEmergencyInfo;
-
-// import useDrugAllergys from "./usePatientDrugAllergys";
-
-// const { patientId } = useParams();
-// const { drugAllergys, isLoading, error } = useDrugAllergys(patientId);
-
-// if (isLoading) return <Spinner />;
-// if (error) return <p>could not load the cabins</p>;
