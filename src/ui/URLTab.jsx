@@ -19,8 +19,6 @@ function URLTap({ field, values }) {
 
   const fieldName = searchParams.get(field);
 
-  console.log("hey");
-
   const handleTypeChange = (type) => {
     setSearchParams({ [field]: type });
   };

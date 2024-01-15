@@ -5,18 +5,18 @@ import TextArea from "../../ui/TextArea";
 import FileInput from "../../ui/FileInput";
 import Button from "../../ui/Button";
 import { useForm } from "react-hook-form";
-import { useAddSpecialConditionData } from "./useAddSpecialConditionData";
+import { useAddOtherAllergyData } from "./useAddOtherAllergyData";
 
 const EditDrugAllergyForm = () => {
   const { register, handleSubmit, reset } = useForm();
 
-  const { isLoading, addSpecialConditionData } = useAddSpecialConditionData();
+  const { isLoading, addOtherAllergyData } = useAddOtherAllergyData();
 
-  function onSubmit(condition) {
-    const investigation = condition.investigation[0];
+  function onSubmit(allergyData) {
+    const investigation = allergyData.investigation[0];
 
-    addSpecialConditionData(
-      { ...condition, investigation },
+    addOtherAllergyData(
+      { ...allergyData, investigation },
       {
         onSuccess: () => {
           reset();

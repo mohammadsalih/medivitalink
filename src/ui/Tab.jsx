@@ -11,11 +11,11 @@ const StyledTab = styled.div`
 `;
 
 const StyledTabButton = styled.button`
-  padding: 0.5rem 1rem;
-  border: none;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--color-grey-200);
   cursor: pointer;
   background-color: ${(props) =>
-    props.active ? "var(--color-primary)" : "var(--color-secondary)"};
+    props.active ? "var(--color-brand-600)" : "var(--color-grey-0)"};
   color: ${(props) => (props.active ? "#fff" : "inherit")};
   border-radius: 5px;
 `;
@@ -25,6 +25,7 @@ function Tab({ tabs, defaultTab, onTabChange }) {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+
     if (onTabChange) {
       onTabChange(tab);
     }
