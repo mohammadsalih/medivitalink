@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Stats from "./Stats";
 import BeadChart from "./BeadChart";
 import GeneralChart from "./GeneralChart";
-import PatientsChart from "./patientsChart";
+import PatientsChart from "./PatientsChart";
+// import PatientsChart from "./patientsChart";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
