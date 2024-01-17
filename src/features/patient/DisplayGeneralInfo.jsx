@@ -1,16 +1,58 @@
 import usePatient from "./usePatient";
 
 import Spinner from "../../ui/Spinner";
+import DataPresentation from "../../ui/DataPresentation";
+import DataPresentationRow from "../../ui/DataPresentationRow";
 
 function DisplayGeneralInfo({ patientId }) {
   const { patient, isLoading, error } = usePatient(patientId);
 
+  const {
+    patient_id,
+    full_name,
+    date_of_birth,
+    gender,
+    job,
+    marital_status,
+    no_children,
+    height,
+    bmi,
+    blood_type,
+    rh_system,
+    phone_number,
+    emergency_phone_number,
+  } = patient.data[0];
+
+  const data = {
+    patient_id,
+    full_name,
+    date_of_birth,
+    gender,
+    job,
+    marital_status,
+    no_children,
+    height,
+    bmi,
+    blood_type,
+    rh_system,
+    phone_number,
+    emergency_phone_number,
+  };
+
   if (isLoading) return <Spinner />;
   if (error) return <p>could not load the cabins</p>;
 
-  console.log(patient);
-
-  return <div>this is general info {patientId}</div>;
+  return (
+    <DataPresentation>
+      {Object.entries(data).map(([key, value]) => (
+        <DataPresentationRow
+          key={key}
+          title={key.replaceAll("_", " ")}
+          subTitle={value}
+        />
+      ))}
+    </DataPresentation>
+  );
 }
 
 export default DisplayGeneralInfo;
