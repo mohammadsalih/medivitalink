@@ -1,7 +1,7 @@
 import Form from "../../ui/Form";
 import FormRowVertical from "../../ui/FormRowVertical";
 import Input from "../../ui/Input";
-import TextArea from "../../ui/TextArea";
+import Textarea from "../../ui/Textarea";
 import FileInput from "../../ui/FileInput";
 import Button from "../../ui/Button";
 import { useForm } from "react-hook-form";
@@ -61,7 +61,7 @@ const EditDrugAllergyForm = () => {
       </FormRowVertical>
 
       <FormRowVertical label="Description">
-        <TextArea
+        <Textarea
           placeholder="Description"
           {...register("description", {
             required: "this field is required",

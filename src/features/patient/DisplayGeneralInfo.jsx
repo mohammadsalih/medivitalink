@@ -7,6 +7,8 @@ import DataPresentationRow from "../../ui/DataPresentationRow";
 function DisplayGeneralInfo({ patientId }) {
   const { patient, isLoading, error } = usePatient(patientId);
 
+  if (isLoading) return <Spinner />;
+
   const {
     patient_id,
     full_name,
@@ -39,7 +41,6 @@ function DisplayGeneralInfo({ patientId }) {
     emergency_phone_number,
   };
 
-  if (isLoading) return <Spinner />;
   if (error) return <p>could not load the cabins</p>;
 
   return (
